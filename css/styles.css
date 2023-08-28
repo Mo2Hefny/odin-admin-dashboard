@@ -1,0 +1,241 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+:root {
+  --background: #f3f3f3;
+  --header: #ffffff;
+  --text: #090f16;
+  --primary: #fcb221;
+  --secondary: #1c242c;
+  --accent: #1993d4;
+  --subtitle: 24px;
+  --p: 18px;
+  --small: 14px;
+}
+
+a {
+  color: inherit;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  overflow: hidden;
+  height: 100vh;
+  max-height: 100vh;
+  display: grid;
+  grid-template-columns: 18rem 1fr;
+  grid-template-rows: 13rem 1fr;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background: var(--accent);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1993d470;
+}
+
+.header {
+  background: var(--header);
+  box-shadow: 0px 0 10px #07070740;
+  z-index: 100;
+}
+
+/* Sidebar */
+.sidebar {
+  padding: 1rem 0 1rem 1rem;
+  background-color: var(--accent);
+  color: var(--background);
+  grid-area: 1 / 1 / -1 / 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 3rem;
+}
+
+.sidebar > .sub {
+  width: 100%;
+}
+
+.sidebar > .sub:first-child {
+  margin-bottom: 4rem;
+}
+
+.sub > .nav-link,
+.logo {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 3rem;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  height: 4rem;
+}
+
+.nav-link > .icon,
+.logo > .icon {
+  width: 35px;
+  height: 35px;
+  justify-self: flex-end;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo > .icon {
+  width: 45px;
+  height: 45px;
+}
+
+.nav-link > .title {
+  font-size: var(--p);
+  font-weight: 600;
+}
+
+.logo > .title {
+  font-size: var(--subtitle);
+  font-weight: 700;
+}
+
+.nav-link.active,
+.nav-link:active {
+  box-shadow: inset 1px 1px 3px #07070750, inset -1px -1px 3px #f7f7f770;
+}
+
+.nav-link.active::before {
+  position: absolute;
+  background-color: var(--primary);
+  content: "";
+  width: 4px;
+  height: 100%;
+  border-radius: 4px;
+}
+
+.nav-link:hover::after {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background-color: #f4f4f430;
+}
+
+.dashboard {
+  background: var(--background);
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 18rem;
+  grid-template-rows: 1fr 1fr;
+  gap: 2rem;
+  max-height: calc(100vh - 13rem);
+}
+
+/* Projects */
+.projects {
+  overflow: hidden;
+  grid-area: 1 / 1 / -1 / 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.projects > .content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 350px);
+  grid-auto-rows: 250px;
+  gap: 1.5rem;
+  overflow-y: scroll;
+}
+
+.dashboard .content {
+  margin-top: 1.5rem;
+}
+
+.project {
+  padding: 1rem;
+  border-radius: 6px;
+  border-left: 8px solid var(--primary);
+  background-color: var(--header);
+  height: 100%;
+  display: grid;
+  grid-template-rows: 50px 1fr 50px;
+}
+
+.project > .title {
+  display: flex;
+  align-items: center;
+}
+
+.project > p {
+  margin-bottom: 1.5rem;
+}
+
+.project > .links {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Announcements */
+.announcements > .content {
+  padding: 2rem;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1rem;
+  justify-content: center;
+}
+
+.announcement > .title,
+.profile-card > .title {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.announcement > p,
+.profile-card > p {
+  font-size: var(--small);
+}
+
+.announcement + .announcement {
+  padding-top: 1rem;
+  border-top: 2px solid var(--background);
+}
+
+.ellipsis {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.announcement > .ellipsis {
+  -webkit-line-clamp: 2;
+}
+
+.card-shadow {
+  border-radius: 6px;
+  background: var(--header);
+  box-shadow: 1px 1px 5px #07070740;
+}
